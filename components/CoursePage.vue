@@ -1,11 +1,11 @@
 <template>
   <v-card class="mx-auto" color="#26c6da" dark max-width="400">
-    <v-card-header class="bg-white p-4 border-b border-gray-200">
-      <v-card-title class="text-2xl font-semibold text-gray-900">
+    <!-- <v-card-header class=""> -->
+      <v-card-title class="text-2xl font-semibold text-gray-900 bg-white p-4 border-b border-gray-200">
         <v-icon large left router> mdi-book </v-icon>
         {{ course.subject }}
       </v-card-title>
-    </v-card-header>
+    <!-- </v-card-header> -->
     <v-card-text class="text-h5 font-weight-bold">
       {{ course.desc }}
     </v-card-text>
@@ -16,7 +16,7 @@
     <!-- <Students :students="course.students" /> -->
 
     <v-card-actions class="mt-3" v-if="user">
-      <v-card-actions-button class="btn btn-sm btn-primary ml-2">
+
         <v-btn class="mx-2" fab dark color="red" @click="onDelete" v-if="isOwner">
           <v-icon dark> mdi-delete </v-icon>
         </v-btn>
@@ -31,7 +31,6 @@
         <v-btn class="mx-2" fab color="gray" :to="`course/${course.course_id}`">
           <v-icon>mdi-arrow-expand-all</v-icon>
         </v-btn>
-      </v-card-actions-button>
     </v-card-actions>
   </v-card>
 </template>

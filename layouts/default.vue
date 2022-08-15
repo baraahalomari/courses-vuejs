@@ -115,8 +115,7 @@ export default {
       this.$router.push("/auth");
     },
   },
-  mounted: function () {
-    console.log(this.$store.state.user);
+  updated() {
     const user = getUser();
     if (user) {
       this.isLogin = true;

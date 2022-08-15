@@ -8,7 +8,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import CoursePage from "./Course.vue";
+import CoursePage from "./CoursePage.vue";
 export default {
   name: "CoursesPage",
   props: {

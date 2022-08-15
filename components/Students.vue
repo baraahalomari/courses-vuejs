@@ -7,8 +7,8 @@
           <v-list-item-title v-if="students?.length == 0 || !students"
             >No Students Joined</v-list-item-title
           >
-          <v-list-item-content :key="student.id" v-for="student in students">
-            <v-list-item-title>{{ student.username }}</v-list-item-title>
+          <v-list-item-content :key="student.id" v-for="student in students" class="radiusButtom" >
+            <v-list-item-title  >{{ student.username }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-expansion-panel-content>
@@ -34,12 +34,16 @@ export default {
 .listOfStudent{
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   border-radius: 5px;
   font-size: 14px;
- 
   overflow: hidden;
- 
+}
+
+.radiusButtom{
+  border-bottom : 1px solid #e0e0e0;
+  width: 100%;
+
 }
 </style>

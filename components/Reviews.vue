@@ -2,10 +2,10 @@
   <div>
 
     <v-expansion-panels color="#26c6da" class="mb-3">
-      <v-expansion-panel class="comments-views">
+      <v-expansion-panel class="comments-con">
         <v-expansion-panel-header>Show Reviews</v-expansion-panel-header>
         <v-expansion-panel-content>
-          <v-list-item two-line class="comments-views">
+          <v-list-item two-line class="comments-con">
             <v-list-item-title v-if="comments?.length == 0 || !comments">No Reviews</v-list-item-title>
             <v-list-item-content :key="comment.id" v-for="comment in comments" class="comments-views">
               <v-list-item-title class="reviews-header"><span>{{ comment.username }} </span>
@@ -36,13 +36,14 @@
                 </span>
               </v-list-item-subtitle>
             </v-list-item-content>
-            <div class="reviews-header">
-              <v-text-field label="Add Comment" block v-model="newComment"></v-text-field>
-              <v-btn class="mx-2" fab dark color="indigo" :disabled="!newComment" @click="onAddComment">
-                <v-icon dark> mdi-plus </v-icon>
-              </v-btn>
-            </div>
           </v-list-item>
+          <div class="reviews-header">
+            <v-text-field label="Add Comment" block v-model="newComment"></v-text-field>
+            <v-btn class="mx-2" fab dark color="indigo" :disabled="!newComment" @click="onAddComment">
+              <v-icon dark> mdi-plus </v-icon>
+            </v-btn>
+          </div>
+
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -129,7 +130,7 @@ export default {
     },
     handleShowListIcon(review_id) {
       const user = getUser();
-    return  this.instructor_id == user?.user?.user_id || this.checkIsOwner(review_id)
+      return this.instructor_id == user?.user?.user_id || this.checkIsOwner(review_id)
     },
 
     handleShowComment(review_id) {
@@ -166,8 +167,13 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-radius: 5px;
   font-size: 14px;
+  border-bottom: 1px solid #e0e0e0;
+}
 
+.comments-con {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 </style>

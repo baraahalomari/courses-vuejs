@@ -1,13 +1,14 @@
 <template>
   <v-container >
-    <AddCourse v-if="user" />
+    <v-btn color="primary"  @click="dialog = true" >Add Course </v-btn>
+    <AddCourse v-if="user" :dialog="dialog" @closeDialog="dialog = false" />
     <CoursesPage :byPage="coursesByPage" />
     <Pagination />
   </v-container>
 </template>
 
 <script>
-import CoursesPage from '../components/Courses.vue'
+import CoursesPage from '../components/CoursesPage.vue'
 import AddCourse from '../components/AddCourse.vue'
 import Pagination from '../components/Paginations.vue'
 import getUser from "../utilts/getUser";
@@ -16,6 +17,7 @@ export default {
   name: 'IndexPage',
   data (){
     return {
+      dialog: false,
       user : getUser(),
     }
   },

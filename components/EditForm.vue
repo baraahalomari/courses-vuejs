@@ -56,6 +56,10 @@ export default {
       desc: this.editedCourse.desc,
       valid: false,
       dialog: false,
+       menu: false,
+        subjectRule: [(v) => !!v || "Subject is required"],
+      descRules: [(v) => !!v || "Description is required"],
+      dateRules: [(v) => !!v || "Date is required"],
     };
   },
   props: {
